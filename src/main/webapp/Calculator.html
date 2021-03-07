@@ -45,17 +45,48 @@
      <script type="text/javascript">
      $(document).ready(function(){
 
-		  $('#eval').click(function () {
-    	        var exp=$("#expression").val();
+		  $('#log').click(function () {
+    	        let exp=$("#expression").val();
+    	        let btn="log";
     	        $.ajax({
     	            url: "getResult",
-    	            data: {expression: exp},
+    	            data: {expression: exp,
+                            button: btn},
     	            success: function (data) {
     	                $("#expression").val(data);
     	            },
     	        });
 
     	    });
+
+         $('#fact').click(function () {
+             let exp=$("#expression").val();
+             let btn="fact";
+             $.ajax({
+                 url: "getResult",
+                 data: {expression: exp,
+                     button: btn},
+                 success: function (data) {
+                     $("#expression").val(data);
+                 },
+             });
+
+         });
+
+         $('#sqroot').click(function () {
+             let exp=$("#expression").val();
+             let btn="sqroot";
+             $.ajax({
+                 url: "getResult",
+                 data: {expression: exp,
+                     button: btn},
+                 success: function (data) {
+                     $("#expression").val(data);
+                 },
+             });
+
+         });
+
 
     	});
      </script>
@@ -68,39 +99,36 @@
         <h1 class="h3 mb-3 font-weight-normal">Calculator</h1>
         <input type="text" id="expression" class="form-control" placeholder="0" >
          
-        <div class="row">
-        <button class="btn" value="("  onclick="calc(this.value)">(</button>
-        <button class="btn" value=")" onclick="calc(this.value)">)</button>
-        <button class="btn" value="%" onclick="calc(this.value)">%</button>
-        <button class="btn" value="AC" onclick="calc(this.value)">AC</button>
-        </div>
+<!--        <div class="row">-->
+<!--        <button class="btn" value="("  onclick="calc(this.value)">(</button>-->
+<!--        <button class="btn" value=")" onclick="calc(this.value)">)</button>-->
+<!--        <button class="btn" value="%" onclick="calc(this.value)">%</button>-->
+<!--        </div>-->
         <div class="row">
         <button class="btn-default" value="7" onclick="calc(this.value)">7</button>
         <button class="btn-default" value="8" onclick="calc(this.value)">8</button>
         <button class="btn-default" value="9" onclick="calc(this.value)">9</button>
-        <button class="btn" value="/" onclick="calc(this.value)">/</button>
+            <button class="btn" id="power" value="" type="submit">^</button>
         </div>
         <div class="row">
         <button class="btn-default" value="4" onclick="calc(this.value)">4</button>
         <button class="btn-default" value="5" onclick="calc(this.value)">5</button>
         <button class="btn-default" value="6" onclick="calc(this.value)">6</button>
-         <button class="btn" value="*" onclick="calc(this.value)">*</button>
+            <button class="btn" id="sqroot" value="" type="submit">√</button>
         </div>
         <div class="row">
         <button class="btn-default" value="1" onclick="calc(this.value)">1</button>
         <button class="btn-default" value="2" onclick="calc(this.value)">2</button>
         <button class="btn-default" value="3" onclick="calc(this.value)">3</button>
-         <button class="btn" value="-" onclick="calc(this.value)">-</button>
+         <button class="btn" id="log" value="" type="submit">ln</button>
         </div>
         <div class="row">
         <button class="btn-default"  value="0" onclick="calc(this.value)">0</button>
         <button class="btn-default"  value="." onclick="calc(this.value)">.</button>
-        <button class="btn btn-info" id="eval" value="" type="submit" >=</button>
-         <button class="btn" value="+" onclick="calc(this.value)">+</button>
+            <button class="btn" value="AC" onclick="calc(this.value)">AC</button>
+            <button class="btn" id="fact" value="" type="submit">!</button>
         </div>
       <!-- </form> -->
   </div>
-
-
-
+  </body>
 </html>

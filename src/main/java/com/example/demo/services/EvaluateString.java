@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EvaluateString 
 { 
-	    public double evaluate(String input) 
+	    public double evaluate(String exp, String input)
 	    { 
 	    	
 	        Stack<Integer> op  = new Stack<Integer>();
